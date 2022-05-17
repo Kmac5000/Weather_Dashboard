@@ -4,3 +4,8 @@
  .navbar {
      justify-content: center;
  }
+
+ .list-group-item {
+     background-color: gray;
+     border: 1px solid black;
+ }

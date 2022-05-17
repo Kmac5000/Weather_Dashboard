@@ -15,16 +15,21 @@
         Weather Dashboard
     </a>
 </nav>
-<div class="row">
+<form class="row">
     <div class="col input-group">
         <div class="form-outline">
-            <input type="search" id="form1" class="form-control" placeholder="search" />
+            <input type="search" id="form1" class="form-control cityInput" placeholder="search" />
         </div>
-        <button type="button" class="btn btn-primary">
+        <button type="button" class="btn btn-primary searchBtn">
             <i class="fas fa-search">search</i>
         </button>
     </div>
-</div>
+    <div class="col">
+        <ul class="cityList"></ul>
+
+    </div>
+</form>
+
 </body>
 
 <!-- Jquery -->
