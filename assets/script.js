@@ -1,62 +1,27 @@
+var baseUrl = "http://api.weatherapi.com/v1/";
+var apiKey = "key=25992b2ec8a74f02ad1222121221805";
+var citySearch = $("#search-focus");
+var searchBtn = $("#searchBtn");
+var currentSrch = "";
 
-
-
-
-
-var weatherAdd = "https://api.openweathermap.org/data/2.5/onecall"
-
-var apiKey = ("588211c33c6b0efc0936212b7dfcb608");
-
-var searchBtn = $(".searchBtn");
-var cityInput = $(".cityInput");
-var searchCity = $("#form1");
-var cityList = $(".citylist");
-var yourCity = "";
-var previousCity = "";
-var city = "";
-// load most recent city on page entry
-
-function lastCity() {
-    var city = searchCity.val();
-    yourCity = searchCity.val();
-}
-
-// on click, save city to local value
-searchBtn.on("click", (event) => {
-    event.preventDefault();
-    yourCity = searchCity.val();
-    localStorage.setItem('city', yourCity)
-});
-
-function renderCity() {
-    var yourCity = JSON.parse(localStorage.getItem("city")) || [];
-
-    cityList.push({ city }),
-        
-        cityList.innerHTML = localStorage.getItem('city');
-    
-    if (cityList.length === 0) {
-        return cityList.text("")
-    };
-
-    for (let i = 0; i < yourCity.length; i++) {
-        var cityObj = yourCity;
-        var newLi = $("<li>", {
-            class: "list-group-item",
-            
-        });
-
-        newLi.text(cityObj);
-        cityList.append(newLi);
-    }
-    
+var weatherSetting = {
+  async: true,
+  crossDomain: true,
+  url: "",
+  method: "GET",
 };
 
-renderCity()
-console.log(cityList)
+function searchApi() {
+  city = citySearch.val();
+  localStorage.setItem("city", city);
+  console.log(city.val);
+  weatherSetting.url =
+    "https://api.weatherapi.com/v1/current.json?key=25992b2ec8a74f02ad1222121221805&q=" +
+    city +
+    "&aqi=yes";
+  console.log(weatherSetting.url);
 
+  // $.ajax(weatherSetting);
+}
 
-
-
-
-
+searchBtn.on("click", searchApi());
