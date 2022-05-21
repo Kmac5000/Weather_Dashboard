@@ -1,11 +1,16 @@
 var apiKey = "29677fe20199fe6d91bf4ac066217d18";
 var city = "";
 
+var currentWeather = $(".currentWeather");
 var citySearch = $("#search-focus");
 var searchBtn = $("#searchBtn");
 var cityList = $(".cityList");
 var currentSrch = "";
-console.log(city);
+// console.log(city);
+currentTemp = "";
+currentHum = "";
+currentWind = "";
+currentUVI = "";
 var weatherSetting = {
   async: true,
   crossDomain: true,
@@ -31,10 +36,6 @@ function coordinates() {
       console.log(lat);
       console.log(lon);
 
-      var name = data[0].name;
-
-      console.log(name);
-
       // call get weather function passing lat and lon as para
       var weatherUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely&units=imperial&appid=${apiKey}`;
 
@@ -43,13 +44,25 @@ function coordinates() {
         .then(function (response) {
           return response.json();
         })
-        .then(function (response) {
-          console.log(response);
-          var currentWeather = response[1];
-          console.log(currentWeather);
+        .then(function (data) {
+          console.log(data);
+
+          $("#temp").text("Temperature: " + data.current.temp + "\u00B0" + "f");
+          $("#hum").text("Humidity: " + data.current.humidity + "%");
+          $("#wind").text("Wind Speed: " + data.current.wind_speed) + "MPH";
+          $("#uvi").text("UV Index: " + data.current.uvi);
+          
         });
     });
 }
+
+function uviColor() {
+  if ("#uvi" < 3)
+}
+
+// + currentTemp);
+
+$("#uvi").text;
 
 // coordinates(geoUrl);
 

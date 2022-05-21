@@ -1,0 +1,37 @@
+
+1 create header
+
+2 search for city,
+     A. create search bar
+     B. create button to save input
+        1. city is saved to local memory
+        2. add city to unordered list under search bar
+        3. click on city to get weather info
+
+3. city pulls up current conditions
+    A. retrieve from weather API
+
+4. when city is clicked
+    A. weather icon pulls up
+    B. info about
+        1. temp
+        2. humidity
+        3. wind speed
+        4. local uv index
+
+5. create a color to represent
+    1. favorable
+    2. moderate
+    3. severe
+
+6. create future weather conditions button
+    1. future conditions will include
+        a. 5day forcast
+        b. icon representing conditions
+        c. temperature
+        d. windspeed
+        e. humidity
+
+7. click a city in search history
+    A. display future weather conditions
+
