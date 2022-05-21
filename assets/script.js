@@ -51,13 +51,15 @@ function coordinates() {
           $("#hum").text("Humidity: " + data.current.humidity + "%");
           $("#wind").text("Wind Speed: " + data.current.wind_speed) + "MPH";
           $("#uvi").text("UV Index: " + data.current.uvi);
-          
+          if (data.current.uvi < 3) {
+            $("#uvi").addClass("bg-success");
+          } else if (data.current.uvi >= 6) {
+            $("#uvi").addClass("bg-danger");
+          } else {
+            $("#uvi").addClass("bg-warning");
+          }
         });
     });
-}
-
-function uviColor() {
-  if ("#uvi" < 3)
 }
 
 // + currentTemp);
