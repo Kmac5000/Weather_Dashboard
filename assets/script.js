@@ -39,6 +39,11 @@ var weatherSetting = {
 // creat function to get current weather conditions
 
 // create function to get five day forcast
+init();
+function init() {
+  currentWeather.hide();
+  futureWeather.hide();
+}
 
 function coordinates() {
   var geoUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`;
@@ -84,10 +89,10 @@ function coordinates() {
           $("#icon").attr("src", data.daily[0].weather[0].icon);
           $("#futureDay").text(tomorrow);
           $("#fiveTempHi").text(
-            "High Temp: " + data.daily[0].temp.day + "\u00B0" + "f"
+            "High Temp: " + data.daily[0].temp.max + "\u00B0" + "f"
           );
           $("#fiveTempLo").text(
-            "Low Temp: " + data.daily[0].temp.eve + "\u00B0" + "f"
+            "Low Temp: " + data.daily[0].temp.min + "\u00B0" + "f"
           );
           $("#fiveWind").text(
             "Wind Speed: " + data.daily[0].wind_speed + "MPH"
@@ -96,10 +101,10 @@ function coordinates() {
 
           $("#futureDay1").text(tomorrow1);
           $("#fiveTempHi1").text(
-            "High Temp: " + data.daily[1].temp.day + "\u00B0" + "f"
+            "High Temp: " + data.daily[1].temp.max + "\u00B0" + "f"
           );
           $("#fiveTempLo1").text(
-            "Low Temp: " + data.daily[1].temp.eve + "\u00B0" + "f"
+            "Low Temp: " + data.daily[1].temp.min + "\u00B0" + "f"
           );
           $("#fiveWind1").text(
             "Wind Speed: " + data.daily[1].wind_speed + "MPH"
@@ -108,10 +113,10 @@ function coordinates() {
 
           $("#futureDay2").text(tomorrow2);
           $("#fiveTempHi2").text(
-            "High Temp: " + data.daily[2].temp.day + "\u00B0" + "f"
+            "High Temp: " + data.daily[2].temp.max + "\u00B0" + "f"
           );
           $("#fiveTempLo2").text(
-            "Low Temp: " + data.daily[2].temp.eve + "\u00B0" + "f"
+            "Low Temp: " + data.daily[2].temp.min + "\u00B0" + "f"
           );
           $("#fiveWind2").text(
             "Wind Speed: " + data.daily[2].wind_speed + "MPH"
@@ -120,10 +125,10 @@ function coordinates() {
 
           $("#futureDay3").text(tomorrow3);
           $("#fiveTempHi3").text(
-            "High Temp: " + data.daily[3].temp.day + "\u00B0" + "f"
+            "High Temp: " + data.daily[3].temp.max + "\u00B0" + "f"
           );
           $("#fiveTempLo3").text(
-            "Low Temp: " + data.daily[3].temp.eve + "\u00B0" + "f"
+            "Low Temp: " + data.daily[3].temp.min + "\u00B0" + "f"
           );
           $("#fiveWind3").text(
             "Wind Speed: " + data.daily[3].wind_speed + "MPH"
@@ -132,10 +137,10 @@ function coordinates() {
 
           $("#futureDay4").text(tomorrow4);
           $("#fiveTempHi4").text(
-            "High Temp: " + data.daily[4].temp.day + "\u00B0" + "f"
+            "High Temp: " + data.daily[4].temp.max + "\u00B0" + "f"
           );
           $("#fiveTempLo4").text(
-            "Low Temp: " + data.daily[4].temp.eve + "\u00B0" + "f"
+            "Low Temp: " + data.daily[4].temp.min + "\u00B0" + "f"
           );
           $("#fiveWind4").text(
             "Wind Speed: " + data.daily[4].wind_speed + "MPH"
@@ -148,6 +153,7 @@ function coordinates() {
           // fiveDayList.attr("id", "fiveList");
           // $("fiveList").text(futureTempHigh);
           // $("");
+          createCityList();
         });
     });
 }
@@ -166,22 +172,25 @@ function searchApi() {
 
 searchBtn.on("click", function (event) {
   event.preventDefault();
-  city = citySearch.val().toLowerCase();
+  city = citySearch.val().toUpperCase();
   console.log(city);
   localStorage.setItem("city", city);
   // add citys to list being created
   coordinates();
-  createCityList();
 });
 function createCityList() {
-  var unordLi = $("<div>");
-  unordLi.addClass("col-2 border-light bg-danger");
+  // for (i = 0; i > 5; i++) {
+  var unordLi = $("<button>");
+  unordLi.addClass("col-2 border-light bg-info");
   cityList.append(unordLi);
-  unordLi.attr("id", "list");
+  unordLi.attr("id", "city1");
   $("#list").text(city);
 
   $("#list").append(unordLi);
   unordLi.text(localStorage.getItem("city"));
+
+  currentWeather.show();
+  futureWeather.show();
 }
 
 // searchApi();
