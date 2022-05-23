@@ -80,6 +80,8 @@ function coordinates() {
 
           // five day forcast
           // .then(function (data) {
+
+          $("#icon").attr("src", data.daily[0].weather[0].icon);
           $("#futureDay").text(tomorrow);
           $("#fiveTempHi").text(
             "High Temp: " + data.daily[0].temp.day + "\u00B0" + "f"
