@@ -10,12 +10,15 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/style.css" />
     <title>Document</title>
   </head>
   <body>
-    <nav class="navbar navbar-light bg-light justify-content-center">
-      <a class="navbar-brand" href="#"> Weather Dashboard </a>
+    <nav class="navbar justify-content-center">
+      <h1>Weather Dashboard</h1>
     </nav>
     <div class="input-group">
       
@@ -31,69 +34,73 @@
         <i class="fas fa-search">search</i>
       </button>
     </div>
-    <section class="cityList">
-      <h1 id="headerText"></h1>
-    </section>
-    <section class="currentWeather">
-       <div class="col-sm-8" id="todayForcast">
-        <h2>Weather Forecast</h2>
-        <div class="container-fluid mh-50 float-end" id="currentDisplay">
-            <h2 id="currentDay"></h2>
-            <ul id="currentConditions">
-                <li id="temp"></li>
-                <li id="wind"></li>
-                <li id="hum"></li>
-                <li id="uvi"></li>
-            </ul>
+    <div class="d-flex flex-row justify-content-end">
+      <section class="d-flex align-items-start flex-column cityList">
+        <h1 id="headerText"></h1>
+      </section>
+    
+      <section class="currentWeather">
+        <div class="col-sm-8" id="todayForcast">
+          <h2>Weather Forecast</h2>
+          <div class="container-fluid mh-50 float-end" id="currentDisplay">
+              <h2 id="currentDay"></h2>
+              <ul id="currentConditions">
+                  <li id="temp"></li>
+                  <li id="wind"></li>
+                  <li id="hum"></li>
+                  <li id="uvi"></li>
+              </ul>
+          </div>
+          <div id="display" class="d-sm-inline-flex mh-50"></div>
         </div>
-        <div id="display" class="d-sm-inline-flex mh-50"></div>
-    </div>
-    </section>
-    <section class="futureWeather">
-      <div class="col-sm-8 col-lg-12" id="futureForcast">
-        <h2>Five Day</h2>
-        <div class="container-fluid mh-50 float-end" id="futureDisplay">
+      </section>
+      <section class="futureWeather">
+        <div class="col-sm-8 col-lg-12" id="futureForcast">
+          <h2>Five Day</h2>
+          <div class="container-fluid mh-50 float-end" id="futureDisplay">
 
-          <h2 id="fiveDay"></h2>
-          <ul id="futureConditions">
-            
+            <h2 id="fiveDay"></h2>
+            <ul id="futureConditions">
+              <li id="futureDay"></li>
+              <li id="fiveTempHi"></li>
+              <li id="fiveTempLo"></li>
+              <li id="fiveWind"></li>
+              <li id="fiveHum"></li>
+            </ul>
+            <ul>  
+              <li id="futureDay1"></li>
+              <li id="fiveTempHi1"></li>
+              <li id="fiveTempLo1"></li>
+              <li id="fiveWind1"></li>
+              <li id="fiveHum1"></li>
+            </ul> 
+            <ul>  
+              <li id="futureDay2"></li>
+              <li id="fiveTempHi2"></li>
+              <li id="fiveTempLo2"></li>
+              <li id="fiveWind2"></li>
+              <li id="fiveHum2"></li>
+            </ul> 
+            <ul>  
+              <li id="futureDay3"></li>
+              <li id="fiveTempHi3"></li>
+              <li id="fiveTempLo3"></li>
+              <li id="fiveWind3"></li>
+              <li id="fiveHum3"></li>
+            </ul>
+            <ul>
+              <li id="futureDay4"></li>
+              <li id="fiveTempHi4"></li>
+              <li id="fiveTempLo4"></li>
+              <li id="fiveWind4"></li>
+              <li id="fiveHum4"></li>
+            </ul>
               
             
-            <li id="futureDay"></li>
-            <li id="fiveTempHi"></li>
-            <li id="fiveTempLo"></li>
-            <li id="fiveWind"></li>
-            <li id="fiveHum"></li>
-            <br>
-            <li id="futureDay1"></li>
-            <li id="fiveTempHi1"></li>
-            <li id="fiveTempLo1"></li>
-            <li id="fiveWind1"></li>
-            <li id="fiveHum1"></li>
-            <br>
-            <li id="futureDay2"></li>
-            <li id="fiveTempHi2"></li>
-            <li id="fiveTempLo2"></li>
-            <li id="fiveWind2"></li>
-            <li id="fiveHum2"></li>
-            <br>
-            <li id="futureDay3"></li>
-            <li id="fiveTempHi3"></li>
-            <li id="fiveTempLo3"></li>
-            <li id="fiveWind3"></li>
-            <li id="fiveHum3"></li>
-            <br>
-            <li id="futureDay4"></li>
-            <li id="fiveTempHi4"></li>
-            <li id="fiveTempLo4"></li>
-            <li id="fiveWind4"></li>
-            <li id="fiveHum4"></li>
-            
-          </ul>
-          
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </body>
 
   <!-- Jquery -->

@@ -1,3 +1,21 @@
-* {
-  /* background-color: aquamarine; */
+body {
+  background-image: url(../images/treeField.jpg);
+  font-family: "Gloria Hallelujah", cursive;
+}
+
+nav {
+  color: black;
+  opacity: 0.9;
+}
+
+ul {
+  background: rgb(91, 168, 93);
+  background: radial-gradient(
+    circle,
+    rgba(91, 168, 93, 1) 0%,
+    rgba(175, 235, 169, 0.6446953781512605) 67%,
+    rgba(98, 98, 98, 1) 96%
+  );
+  list-style-type: none;
+  border-radius: 5%;
 }
