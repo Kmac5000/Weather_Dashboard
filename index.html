@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/style.css" />
-    <title>Document</title>
+    <title>Weather Dashboard</title>
   </head>
   <body>
     <nav class="navbar justify-content-center">
@@ -34,14 +34,14 @@
         <i class="fas fa-search">search</i>
       </button>
     </div>
-    <div class="d-flex flex-row justify-content-end">
-      <section class="d-flex align-items-start flex-column cityList">
+    <div class="d-lg-flex d-sm-column">
+      <section class="d-flex flex-column cityList">
         <h1 id="headerText"></h1>
       </section>
     
       <section class="currentWeather">
-        <div class="col-sm-8" id="todayForcast">
-          <h2>Weather Forecast</h2>
+        <div class="col-12 col-lg-2" id="todayForcast">
+          <h2>Current Weather</h2>
           <div class="container-fluid mh-50 float-end" id="currentDisplay">
               <h2 id="currentDay"></h2>
               <ul id="currentConditions">
@@ -55,7 +55,7 @@
         </div>
       </section>
       <section class="futureWeather">
-        <div class="col-sm-8 col-lg-12" id="futureForcast">
+        <div class="col-12 col-lg-8" id="futureForcast">
           <h2>Five Day</h2>
           <div class="container-fluid mh-50 float-end" id="futureDisplay">
 
