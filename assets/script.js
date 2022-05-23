@@ -5,12 +5,30 @@ var currentWeather = $(".currentWeather");
 var citySearch = $("#search-focus");
 var searchBtn = $("#searchBtn");
 var cityList = $(".cityList");
+var futureWeather = $(".futureWeather");
 var currentSrch = "";
-// console.log(city);
+
 currentTemp = "";
 currentHum = "";
 currentWind = "";
 currentUVI = "";
+futureTempHigh = "";
+futureTempLow = "";
+futureWind = "";
+futureHum = "";
+
+const today = new Date();
+const tomorrow = new Date(today);
+tomorrow.setDate(tomorrow.getDate() + 1);
+const tomorrow1 = new Date(today);
+tomorrow1.setDate(tomorrow1.getDate() + 2);
+const tomorrow2 = new Date(today);
+tomorrow2.setDate(tomorrow2.getDate() + 3);
+const tomorrow3 = new Date(today);
+tomorrow3.setDate(tomorrow3.getDate() + 4);
+const tomorrow4 = new Date(today);
+tomorrow4.setDate(tomorrow4.getDate() + 5);
+
 var weatherSetting = {
   async: true,
   crossDomain: true,
@@ -56,15 +74,83 @@ function coordinates() {
           } else if (data.current.uvi >= 6) {
             $("#uvi").addClass("bg-danger");
           } else {
-            $("#uvi").addClass("bg-warning");
+            $("#uvi").addClass("bg-primary");
           }
+          // })
+
+          // five day forcast
+          // .then(function (data) {
+          $("#futureDay").text(tomorrow);
+          $("#fiveTempHi").text(
+            "High Temp: " + data.daily[0].temp.day + "\u00B0" + "f"
+          );
+          $("#fiveTempLo").text(
+            "Low Temp: " + data.daily[0].temp.eve + "\u00B0" + "f"
+          );
+          $("#fiveWind").text(
+            "Wind Speed: " + data.daily[0].wind_speed + "MPH"
+          );
+          $("#fiveHum").text("Humidity: " + data.daily[0].humidity + "%");
+
+          $("#futureDay1").text(tomorrow1);
+          $("#fiveTempHi1").text(
+            "High Temp: " + data.daily[1].temp.day + "\u00B0" + "f"
+          );
+          $("#fiveTempLo1").text(
+            "Low Temp: " + data.daily[1].temp.eve + "\u00B0" + "f"
+          );
+          $("#fiveWind1").text(
+            "Wind Speed: " + data.daily[1].wind_speed + "MPH"
+          );
+          $("#fiveHum1").text("Humidity: " + data.daily[1].humidity + "%");
+
+          $("#futureDay2").text(tomorrow2);
+          $("#fiveTempHi2").text(
+            "High Temp: " + data.daily[2].temp.day + "\u00B0" + "f"
+          );
+          $("#fiveTempLo2").text(
+            "Low Temp: " + data.daily[2].temp.eve + "\u00B0" + "f"
+          );
+          $("#fiveWind2").text(
+            "Wind Speed: " + data.daily[2].wind_speed + "MPH"
+          );
+          $("#fiveHum2").text("Humidity: " + data.daily[2].humidity + "%");
+
+          $("#futureDay3").text(tomorrow3);
+          $("#fiveTempHi3").text(
+            "High Temp: " + data.daily[3].temp.day + "\u00B0" + "f"
+          );
+          $("#fiveTempLo3").text(
+            "Low Temp: " + data.daily[3].temp.eve + "\u00B0" + "f"
+          );
+          $("#fiveWind3").text(
+            "Wind Speed: " + data.daily[3].wind_speed + "MPH"
+          );
+          $("#fiveHum3").text("Humidity: " + data.daily[3].humidity + "%");
+
+          $("#futureDay4").text(tomorrow4);
+          $("#fiveTempHi4").text(
+            "High Temp: " + data.daily[4].temp.day + "\u00B0" + "f"
+          );
+          $("#fiveTempLo4").text(
+            "Low Temp: " + data.daily[4].temp.eve + "\u00B0" + "f"
+          );
+          $("#fiveWind4").text(
+            "Wind Speed: " + data.daily[4].wind_speed + "MPH"
+          );
+          $("#fiveHum4").text("Humidity: " + data.daily[4].humidity + "%");
+
+          // var fiveDayList = $("<div>");
+          // fiveDayList.addClass("col 2 border-light");
+          // futureWeather.append(fiveDayList);
+          // fiveDayList.attr("id", "fiveList");
+          // $("fiveList").text(futureTempHigh);
+          // $("");
         });
     });
 }
 
 // + currentTemp);
-
-$("#uvi").text;
 
 // coordinates(geoUrl);
 
@@ -92,7 +178,7 @@ function createCityList() {
   unordLi.attr("id", "list");
   $("#list").text(city);
 
-  $("list").append(unordLi);
+  $("#list").append(unordLi);
   unordLi.text(localStorage.getItem("city"));
 }
 
