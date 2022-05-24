@@ -86,6 +86,17 @@ function coordinates() {
           // five day forcast
           // .then(function (data) {
 
+          // for (var i = 0; i < 5; i++) {
+          //   var nextWeatherContainer = document.createElement("article");
+          //   nextWeatherContainer.classList.add("container");
+          //   var nextDate = document.createElement("p");
+          //   var nextIcon = document.createElement("img");
+          //   nextIcon.setAttribute("src", data.daily[i].weather[i].icon);
+          //   var nextTemp = document.createElement("p");
+          //   nextTemp.textContent = `High: ${data.daily[i].temp.max}`;
+          //   nextWeatherContainer.appendChild(nextDate);
+          // }
+
           $("#icon").attr("src", data.daily[0].weather[0].icon);
           $("#futureDay").text(tomorrow);
           $("#fiveTempHi").text(
@@ -161,14 +172,6 @@ function coordinates() {
 // + currentTemp);
 
 // coordinates(geoUrl);
-
-function searchApi() {
-  city = citySearch.val();
-  console.log(city.val);
-  weatherSetting.url = console.log(weatherSetting.url);
-
-  // $.ajax(weatherSetting);
-}
 
 searchBtn.on("click", function (event) {
   event.preventDefault();
