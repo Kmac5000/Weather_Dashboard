@@ -17,16 +17,23 @@ futureTempLow = "";
 futureWind = "";
 futureHum = "";
 
-const today = new Date();
-const tomorrow = new Date(today);
+let today = new Date().toDateString();
+// var dd = String(today.padStart(2, "0"));
+// var mm = String(today.padStart(2, "0"));
+// var yyyy = today;
+
+// today = mm + "/" + dd + "/" + yyyy;
+console.log(today);
+
+let tomorrow = new Date(today);
 tomorrow.setDate(tomorrow.getDate() + 1);
-const tomorrow1 = new Date(today);
+let tomorrow1 = new Date(today);
 tomorrow1.setDate(tomorrow1.getDate() + 2);
-const tomorrow2 = new Date(today);
+let tomorrow2 = new Date(today);
 tomorrow2.setDate(tomorrow2.getDate() + 3);
-const tomorrow3 = new Date(today);
+let tomorrow3 = new Date(today);
 tomorrow3.setDate(tomorrow3.getDate() + 4);
-const tomorrow4 = new Date(today);
+let tomorrow4 = new Date(today);
 tomorrow4.setDate(tomorrow4.getDate() + 5);
 
 var weatherSetting = {
@@ -70,6 +77,7 @@ function coordinates() {
         .then(function (data) {
           console.log(data);
 
+          $("#dateToday").text(today);
           $("#temp").text("Temperature: " + data.current.temp + "\u00B0" + "f");
           $("#hum").text("Humidity: " + data.current.humidity + "%");
           $("#wind").text("Wind Speed: " + data.current.wind_speed) + "MPH";
@@ -79,7 +87,7 @@ function coordinates() {
           } else if (data.current.uvi >= 6) {
             $("#uvi").addClass("bg-danger");
           } else {
-            $("#uvi").addClass("bg-primary");
+            $("#uvi").addClass("bg-warning");
           }
           // })
 
